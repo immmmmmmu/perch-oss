@@ -1,0 +1,8 @@
+profile:
+  name: 'Sample User'
+  bio: 'This is a sample perch profile for testing.'
+
+locale: ja
+theme: minimal
+
+feeds: []

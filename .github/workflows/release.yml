@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write # required for npm provenance
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Changesets — Version PR or Publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 9.15.4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build OSS packages
+        run: pnpm --filter "@perch/*" build
+
+      # TASK-0019 (OSS v0.1):
+      #   `publish` arg is dynamically gated on NPM_TOKEN. When the @perch npm
+      #   scope is registered and the `NPM_TOKEN` repo secret is set, the
+      #   changesets action runs `pnpm changeset:publish` (which uses
+      #   --provenance via the script). When NPM_TOKEN is unset, `publish` is
+      #   empty and the action falls back to opening a "Version Packages" PR.
+      - name: Notify publish gating
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "::notice title=publish disabled::NPM_TOKEN secret not set — Version PR only mode."
+            echo "Register @perch npm scope + add NPM_TOKEN to repo secrets to enable publish."
+          else
+            echo "::notice title=publish enabled::NPM_TOKEN present — will publish on changeset merge."
+          fi
+
+      - name: Release (Version PR or Publish)
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset:version
+          publish: ${{ secrets.NPM_TOKEN != '' && 'pnpm changeset:publish' || '' }}
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

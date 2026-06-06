@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`@perch/theme-card > renders ja + en snapshots > en 1`] = `
+"<!doctype html><html lang="en"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>card sample</title>
+<meta name="generator" content="@perch/themes:card" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="card sample" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="bg-gradient-to-br from-sky-50 to-violet-50 text-neutral-900 min-h-screen">
+<main class="max-w-2xl mx-auto px-4 py-12 font-sans antialiased">
+<div class="bg-white shadow-xl rounded-2xl p-8">
+<header class="mb-6 text-center">
+<h1 class="text-2xl font-bold">card sample</h1>
+<p class="text-base mt-2 text-neutral-700">短い自己紹介</p></header>
+
+<section><h2 class="font-semibold mt-6 mb-2">Latest posts</h2>
+<ul class="space-y-4 mt-4"></ul></section>
+</div></main>
+</body></html>"
+`;
+
+exports[`@perch/theme-card > renders ja + en snapshots > ja 1`] = `
+"<!doctype html><html lang="ja"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>card sample</title>
+<meta name="generator" content="@perch/themes:card" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="card sample" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="bg-gradient-to-br from-sky-50 to-violet-50 text-neutral-900 min-h-screen">
+<main class="max-w-2xl mx-auto px-4 py-12 font-sans antialiased">
+<div class="bg-white shadow-xl rounded-2xl p-8">
+<header class="mb-6 text-center">
+<h1 class="text-2xl font-bold">card sample</h1>
+<p class="text-base mt-2 text-neutral-700">短い自己紹介</p></header>
+
+<section><h2 class="font-semibold mt-6 mb-2">最新の発信</h2>
+<ul class="space-y-4 mt-4"></ul></section>
+</div></main>
+</body></html>"
+`;

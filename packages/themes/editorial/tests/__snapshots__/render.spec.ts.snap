@@ -1,0 +1,131 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`@perch/theme-editorial > renders ja + en snapshots > en 1`] = `
+"<!doctype html><html lang="en"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aoi Tanaka</title>
+<meta name="generator" content="@perch/themes:editorial" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="Aoi Tanaka" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="min-h-screen bg-stone-50 text-stone-950">
+<main class="mx-auto max-w-4xl px-5 py-10 font-serif antialiased sm:px-8 sm:py-14">
+<header class="border-b border-stone-300 pb-10">
+<div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+<div class="space-y-5">
+<img src="./avatar.png" alt="" class="h-20 w-20 rounded-full object-cover ring-1 ring-stone-300" />
+<div class="space-y-4">
+<p class="text-xs font-semibold uppercase text-stone-500">Profile</p>
+<h1 class="max-w-3xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">Aoi Tanaka</h1>
+<p class="max-w-2xl text-lg leading-8 text-stone-700">Independent editor and product writer exploring tools for people who publish in public.</p>
+</div>
+</div>
+<nav aria-label="Profile links" class="border-t border-stone-200 pt-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+<ul class="space-y-4"><li>
+<a href="https://example.com/newsletter" class="text-sm font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950" rel="noopener" target="_blank">Newsletter</a>
+
+</li><li>
+<a href="https://github.com/example" class="text-sm font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950" rel="noopener" target="_blank">GitHub</a>
+
+</li></ul>
+</nav>
+</div>
+</header>
+<section class="pt-8">
+<div class="mb-2">
+<h2 class="text-sm font-semibold uppercase text-stone-500">Latest posts</h2>
+</div>
+<ul><li class="grid gap-5 border-b border-stone-200 py-6 sm:grid-cols-[1fr_auto]">
+<article>
+<div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-stone-500">
+<span>Example Journal</span><span aria-hidden="true">/</span><time datetime="2026-04-30T00:00:00.000Z">Apr 30, 2026</time>
+</div>
+<h3 class="text-xl font-semibold leading-snug text-stone-950">
+<a href="https://example.com/p/1" class="decoration-stone-400 decoration-1 underline-offset-4 hover:underline" rel="noopener" target="_blank">Designing a living profile page</a>
+</h3>
+<p class="mt-3 max-w-2xl text-sm leading-6 text-stone-600">How a profile page can stay current without becoming another dashboard.</p>
+</article>
+<a href="https://example.com/p/1" rel="noopener" target="_blank" aria-hidden="true" tabindex="-1"><img src="https://example.com/og/profile.png" alt="" loading="lazy" class="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-stone-200 sm:w-52" /></a>
+</li><li class="grid gap-5 border-b border-stone-200 py-6 sm:grid-cols-[1fr_auto]">
+<article>
+<div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-stone-500">
+<span>Zenn</span><span aria-hidden="true">/</span><time datetime="2026-04-28T00:00:00.000Z">Apr 28, 2026</time>
+</div>
+<h3 class="text-xl font-semibold leading-snug text-stone-950">
+<a href="https://zenn.dev/example/articles/perch" class="decoration-stone-400 decoration-1 underline-offset-4 hover:underline" rel="noopener" target="_blank">Static feeds for independent publishing</a>
+</h3>
+
+</article>
+
+</li></ul>
+</section>
+</main>
+</body></html>"
+`;
+
+exports[`@perch/theme-editorial > renders ja + en snapshots > ja 1`] = `
+"<!doctype html><html lang="ja"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aoi Tanaka</title>
+<meta name="generator" content="@perch/themes:editorial" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="Aoi Tanaka" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="min-h-screen bg-stone-50 text-stone-950">
+<main class="mx-auto max-w-4xl px-5 py-10 font-serif antialiased sm:px-8 sm:py-14">
+<header class="border-b border-stone-300 pb-10">
+<div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+<div class="space-y-5">
+<img src="./avatar.png" alt="" class="h-20 w-20 rounded-full object-cover ring-1 ring-stone-300" />
+<div class="space-y-4">
+<p class="text-xs font-semibold uppercase text-stone-500">Profile</p>
+<h1 class="max-w-3xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">Aoi Tanaka</h1>
+<p class="max-w-2xl text-lg leading-8 text-stone-700">Independent editor and product writer exploring tools for people who publish in public.</p>
+</div>
+</div>
+<nav aria-label="Profile links" class="border-t border-stone-200 pt-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+<ul class="space-y-4"><li>
+<a href="https://example.com/newsletter" class="text-sm font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950" rel="noopener" target="_blank">Newsletter</a>
+
+</li><li>
+<a href="https://github.com/example" class="text-sm font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950" rel="noopener" target="_blank">GitHub</a>
+
+</li></ul>
+</nav>
+</div>
+</header>
+<section class="pt-8">
+<div class="mb-2">
+<h2 class="text-sm font-semibold uppercase text-stone-500">最新の発信</h2>
+</div>
+<ul><li class="grid gap-5 border-b border-stone-200 py-6 sm:grid-cols-[1fr_auto]">
+<article>
+<div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-stone-500">
+<span>Example Journal</span><span aria-hidden="true">/</span><time datetime="2026-04-30T00:00:00.000Z">2026年4月30日</time>
+</div>
+<h3 class="text-xl font-semibold leading-snug text-stone-950">
+<a href="https://example.com/p/1" class="decoration-stone-400 decoration-1 underline-offset-4 hover:underline" rel="noopener" target="_blank">Designing a living profile page</a>
+</h3>
+<p class="mt-3 max-w-2xl text-sm leading-6 text-stone-600">How a profile page can stay current without becoming another dashboard.</p>
+</article>
+<a href="https://example.com/p/1" rel="noopener" target="_blank" aria-hidden="true" tabindex="-1"><img src="https://example.com/og/profile.png" alt="" loading="lazy" class="aspect-[16/10] w-full rounded-md object-cover ring-1 ring-stone-200 sm:w-52" /></a>
+</li><li class="grid gap-5 border-b border-stone-200 py-6 sm:grid-cols-[1fr_auto]">
+<article>
+<div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-stone-500">
+<span>Zenn</span><span aria-hidden="true">/</span><time datetime="2026-04-28T00:00:00.000Z">2026年4月28日</time>
+</div>
+<h3 class="text-xl font-semibold leading-snug text-stone-950">
+<a href="https://zenn.dev/example/articles/perch" class="decoration-stone-400 decoration-1 underline-offset-4 hover:underline" rel="noopener" target="_blank">Static feeds for independent publishing</a>
+</h3>
+
+</article>
+
+</li></ul>
+</section>
+</main>
+</body></html>"
+`;

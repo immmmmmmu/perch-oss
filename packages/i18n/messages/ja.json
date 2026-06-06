@@ -1,0 +1,19 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "perch_skeleton_placeholder": "perch の i18n スケルトン (TASK-0004 で実装)",
+  "common_app_name": "perch",
+  "common_login": "ログイン",
+  "common_signup": "新規登録",
+  "common_dashboard": "ダッシュボード",
+  "common_logout": "ログアウト",
+  "page_create": "ページを作成",
+  "page_edit": "ページを編集",
+  "page_publish": "公開する",
+  "page_unpublish": "非公開にする",
+  "feed_add": "フィードを追加",
+  "feed_remove": "フィードを削除",
+  "feed_regenerate": "今すぐ更新",
+  "feed_last_fetched": "最終取得: {at}",
+  "error_generic": "エラーが発生しました。しばらく待って再度お試しください。",
+  "error_unauthorized": "ログインが必要です"
+}

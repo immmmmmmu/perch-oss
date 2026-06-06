@@ -1,0 +1,50 @@
+{
+  "name": "@perch/themes-shared",
+  "version": "0.0.0",
+  "description": "Shared rendering primitives for @perch/themes/*.",
+  "keywords": [
+    "perch",
+    "theme",
+    "static-site",
+    "profile"
+  ],
+  "license": "MIT",
+  "author": "HereNow Inc. (Imdaas)",
+  "homepage": "https://perch.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immmmmmmu/perch-oss.git",
+    "directory": "packages/themes/_shared"
+  },
+  "bugs": {
+    "url": "https://github.com/immmmmmmu/perch-oss/issues"
+  },
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "files": [
+    "index.ts",
+    "posts.ts",
+    "render.ts",
+    "types.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "echo 'shared themes layer (no build)'",
+    "test": "vitest run --passWithNoTests"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@perch/core": "workspace:*"
+  }
+}

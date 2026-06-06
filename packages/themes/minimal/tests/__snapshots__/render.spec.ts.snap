@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`@perch/theme-minimal > renders en snapshot 1`] = `
+"<!doctype html><html lang="en"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>今田 慎一郎</title>
+<meta name="generator" content="@perch/themes:minimal" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="今田 慎一郎" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="bg-white text-neutral-900">
+<main class="max-w-xl mx-auto px-4 py-10 font-sans antialiased">
+<header class="mb-8">
+<h1 class="text-2xl font-bold">今田 慎一郎</h1>
+<p class="text-base mt-2">DX 支援</p></header>
+<section><h2 class="font-semibold mt-6 mb-2">Links</h2>
+<ul class="space-y-1"><li class=""><a href="https://example.com/" class="hover:underline" rel="noopener" target="_blank">Blog</a></li></ul></section>
+<section><h2 class="font-semibold mt-6 mb-2">Latest posts</h2>
+<ul class="space-y-4"><li class="border-t pt-3">
+<a href="https://example.com/p/1" class="font-medium hover:underline" rel="noopener" target="_blank">こんにちは &lt;world&gt;</a>
+<div class="text-xs opacity-60">4/30/2026</div>
+<p class="text-sm opacity-75 mt-1">intro &amp;amp; preview</p></li></ul></section>
+</main>
+</body></html>"
+`;
+
+exports[`@perch/theme-minimal > renders ja snapshot 1`] = `
+"<!doctype html><html lang="ja"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>今田 慎一郎</title>
+<meta name="generator" content="@perch/themes:minimal" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="今田 慎一郎" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="bg-white text-neutral-900">
+<main class="max-w-xl mx-auto px-4 py-10 font-sans antialiased">
+<header class="mb-8">
+<h1 class="text-2xl font-bold">今田 慎一郎</h1>
+<p class="text-base mt-2">DX 支援</p></header>
+<section><h2 class="font-semibold mt-6 mb-2">リンク</h2>
+<ul class="space-y-1"><li class=""><a href="https://example.com/" class="hover:underline" rel="noopener" target="_blank">Blog</a></li></ul></section>
+<section><h2 class="font-semibold mt-6 mb-2">最新の発信</h2>
+<ul class="space-y-4"><li class="border-t pt-3">
+<a href="https://example.com/p/1" class="font-medium hover:underline" rel="noopener" target="_blank">こんにちは &lt;world&gt;</a>
+<div class="text-xs opacity-60">2026/4/30</div>
+<p class="text-sm opacity-75 mt-1">intro &amp;amp; preview</p></li></ul></section>
+</main>
+</body></html>"
+`;

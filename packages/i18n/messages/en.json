@@ -1,0 +1,19 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "perch_skeleton_placeholder": "perch i18n skeleton (implemented in TASK-0004)",
+  "common_app_name": "perch",
+  "common_login": "Sign in",
+  "common_signup": "Sign up",
+  "common_dashboard": "Dashboard",
+  "common_logout": "Sign out",
+  "page_create": "Create page",
+  "page_edit": "Edit page",
+  "page_publish": "Publish",
+  "page_unpublish": "Unpublish",
+  "feed_add": "Add feed",
+  "feed_remove": "Remove feed",
+  "feed_regenerate": "Refresh now",
+  "feed_last_fetched": "Last fetched: {at}",
+  "error_generic": "Something went wrong. Please try again in a moment.",
+  "error_unauthorized": "Please sign in to continue."
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@perch/theme-minimal",
+  "version": "0.0.0",
+  "description": "perch theme — minimal.",
+  "keywords": [
+    "perch",
+    "theme",
+    "minimal",
+    "static-site",
+    "profile",
+    "tailwind"
+  ],
+  "license": "MIT",
+  "author": "HereNow Inc. (Imdaas)",
+  "homepage": "https://perch.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immmmmmmu/perch-oss.git",
+    "directory": "packages/themes/minimal"
+  },
+  "bugs": {
+    "url": "https://github.com/immmmmmmu/perch-oss/issues"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm dlx @tailwindcss/cli@4.2.4 -i src/style.css -o dist/style.css --minify",
+    "test": "vitest run --passWithNoTests"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@perch/core": "workspace:*",
+    "@perch/themes-shared": "workspace:*"
+  }
+}

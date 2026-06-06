@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`@perch/theme-timeline > renders ja + en snapshots and orders feed entries by publishedAt desc > en 1`] = `
+"<!doctype html><html lang="en"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>timeline sample</title>
+<meta name="generator" content="@perch/themes:timeline" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="timeline sample" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="bg-neutral-50 text-neutral-900">
+<main class="max-w-2xl mx-auto px-4 py-12 font-mono antialiased">
+<header class="mb-10">
+<h1 class="text-2xl font-bold">timeline sample</h1>
+</header>
+
+<section><h2 class="font-semibold mt-6 mb-2">Latest posts</h2>
+<ul class="mt-6 border-l-2 border-neutral-300 pl-6 space-y-6"><li class="relative pl-3 before:content-[&#39;&#39;] before:absolute before:-left-7 before:top-2 before:w-3 before:h-3 before:rounded-full before:bg-neutral-700">
+<a href="https://example.com/p/new" class="font-medium hover:underline" rel="noopener" target="_blank">newer post</a>
+<div class="text-xs opacity-60">4/30/2026</div>
+</li><li class="relative pl-3 before:content-[&#39;&#39;] before:absolute before:-left-7 before:top-2 before:w-3 before:h-3 before:rounded-full before:bg-neutral-700">
+<a href="https://example.com/p/old" class="font-medium hover:underline" rel="noopener" target="_blank">older post</a>
+<div class="text-xs opacity-60">4/1/2026</div>
+</li></ul></section>
+</main>
+</body></html>"
+`;
+
+exports[`@perch/theme-timeline > renders ja + en snapshots and orders feed entries by publishedAt desc > ja 1`] = `
+"<!doctype html><html lang="ja"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>timeline sample</title>
+<meta name="generator" content="@perch/themes:timeline" />
+<link rel="stylesheet" href="./style.css" />
+<meta property="og:title" content="timeline sample" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+</head><body class="bg-neutral-50 text-neutral-900">
+<main class="max-w-2xl mx-auto px-4 py-12 font-mono antialiased">
+<header class="mb-10">
+<h1 class="text-2xl font-bold">timeline sample</h1>
+</header>
+
+<section><h2 class="font-semibold mt-6 mb-2">最新の発信</h2>
+<ul class="mt-6 border-l-2 border-neutral-300 pl-6 space-y-6"><li class="relative pl-3 before:content-[&#39;&#39;] before:absolute before:-left-7 before:top-2 before:w-3 before:h-3 before:rounded-full before:bg-neutral-700">
+<a href="https://example.com/p/new" class="font-medium hover:underline" rel="noopener" target="_blank">newer post</a>
+<div class="text-xs opacity-60">2026/4/30</div>
+</li><li class="relative pl-3 before:content-[&#39;&#39;] before:absolute before:-left-7 before:top-2 before:w-3 before:h-3 before:rounded-full before:bg-neutral-700">
+<a href="https://example.com/p/old" class="font-medium hover:underline" rel="noopener" target="_blank">older post</a>
+<div class="text-xs opacity-60">2026/4/1</div>
+</li></ul></section>
+</main>
+</body></html>"
+`;

@@ -1,0 +1,10 @@
+profile:
+  name: 'Feed Test User'
+  bio: 'Testing feed integration.'
+
+locale: ja
+theme: minimal
+
+feeds:
+  - url: 'https://zenn.dev/feed'
+    name: 'Zenn'

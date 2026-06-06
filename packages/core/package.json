@@ -1,0 +1,78 @@
+{
+  "name": "@perch/core",
+  "version": "0.0.0",
+  "description": "Framework-agnostic core for fetching, normalizing, and OG-extracting feeds.",
+  "keywords": [
+    "perch",
+    "rss",
+    "atom",
+    "json-feed",
+    "feed",
+    "open-graph",
+    "ogp",
+    "profile"
+  ],
+  "license": "MIT",
+  "author": "HereNow Inc. (Imdaas)",
+  "homepage": "https://perch.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immmmmmmu/perch-oss.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/immmmmmmu/perch-oss/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsup",
+    "test": "vitest run --passWithNoTests",
+    "test:types": "tsd",
+    "test:exports": "attw --pack . --ignore-rules cjs-resolves-to-esm"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.7.2",
+    "js-yaml": "^4.1.1",
+    "neverthrow": "^8.2.0",
+    "rehype-parse": "^9.0.1",
+    "rehype-sanitize": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5",
+    "zod": "^4.4.2"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@types/js-yaml": "^4.0.9",
+    "tsd": "^0.33.0",
+    "tsup": "^8.5.1"
+  },
+  "tsd": {
+    "directory": "tests"
+  }
+}

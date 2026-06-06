@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  quality:
+    name: Lint / Typecheck / Test / Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 9.15.4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Compile i18n (Paraglide)
+        run: pnpm i18n:compile
+
+      # @perch/core ships built artifacts (dist/); downstream type resolution
+      # needs them present before lint runs in typed mode.
+      - name: Build @perch/core (so downstream types resolve)
+        run: pnpm --filter @perch/core build
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm -r typecheck
+
+      # Run the workspace as one suite without coverage here, and gate coverage
+      # thresholds on OSS packages only via a separate step.
+      - name: Test
+        run: pnpm test
+
+      - name: OSS coverage (@perch/core, @perch/i18n)
+        run: pnpm --filter @perch/core --filter @perch/i18n exec vitest run --coverage
+
+      - name: Build
+        run: pnpm build
+
+  bun-smoke:
+    name: Bun smoke (CLI placeholder)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 9.15.4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Compile i18n (Paraglide)
+        run: pnpm i18n:compile
+
+      # @perch/cli depends on @perch/core's built dist/ for type resolution.
+      - name: Build @perch/core (so downstream types resolve)
+        run: pnpm --filter @perch/core build
+
+      - name: Bun typecheck of @perch/cli
+        run: bun --bun tsc --noEmit --project packages/cli/tsconfig.json

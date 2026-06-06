@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@source '..';
+@source '../../_shared';
+
+/* Post body styles */
+.perch-post-body h1 { font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem; }
+.perch-post-body h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+.perch-post-body h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.perch-post-body p { margin-bottom: 1rem; line-height: 1.75; }
+.perch-post-body blockquote {
+  border-left: 3px solid #a3a3a3;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #525252;
+}
+.perch-post-body code {
+  background: #e5e5e5;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: inherit;
+}
+.perch-post-body pre {
+  background: #262626;
+  color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.perch-post-body pre code { background: transparent; padding: 0; color: inherit; }
+.perch-post-body ul, .perch-post-body ol { margin: 1rem 0 1rem 1.5rem; }
+.perch-post-body img { max-width: 100%; height: auto; border-radius: 0.25rem; margin: 1.5rem 0; }
+.perch-post-body table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
+.perch-post-body th, .perch-post-body td { border: 1px solid #d4d4d4; padding: 0.5rem; }

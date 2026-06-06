@@ -1,0 +1,67 @@
+{
+  "name": "@perch/i18n",
+  "version": "0.0.0",
+  "description": "Type-safe i18n messages for perch packages (Paraglide).",
+  "keywords": [
+    "perch",
+    "i18n",
+    "paraglide",
+    "ja",
+    "en",
+    "internationalization"
+  ],
+  "license": "MIT",
+  "author": "HereNow Inc. (Imdaas)",
+  "homepage": "https://perch.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/immmmmmmu/perch-oss.git",
+    "directory": "packages/i18n"
+  },
+  "bugs": {
+    "url": "https://github.com/immmmmmmu/perch-oss/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./paraglide/runtime": {
+      "types": "./src/paraglide/runtime.d.ts",
+      "default": "./src/paraglide/runtime.js"
+    },
+    "./paraglide/server": {
+      "types": "./src/paraglide/server.d.ts",
+      "default": "./src/paraglide/server.js"
+    },
+    "./messages/*.json": "./messages/*.json"
+  },
+  "files": [
+    "messages",
+    "src",
+    "project.inlang",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "echo 'i18n is consumed via source (no build step)'",
+    "compile": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide --emit-ts-declarations",
+    "check": "node ./scripts/check-coverage.mjs",
+    "test": "vitest run --passWithNoTests",
+    "prepack": "pnpm run compile && node ./scripts/prepare-paraglide-npmignore.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@inlang/paraglide-js": "^2.18.0"
+  }
+}
