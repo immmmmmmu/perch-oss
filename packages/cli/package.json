@@ -1,6 +1,6 @@
 {
   "name": "@perch/cli",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "CLI for self-hosted perch profile pages.",
   "keywords": [
     "perch",

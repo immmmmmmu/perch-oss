@@ -1,6 +1,6 @@
 {
   "name": "@perch/i18n",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Type-safe i18n messages for perch packages (Paraglide).",
   "keywords": [
     "perch",
