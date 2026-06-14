@@ -15,12 +15,11 @@ describe('listThemes', () => {
     expect(ids).toContain('minimal');
   });
 
-  it('each theme has id, displayName and free availability', () => {
+  it('each theme has id and displayName', () => {
     const themes = listThemes();
     for (const t of themes) {
       expect(typeof t.id).toBe('string');
       expect(typeof t.displayName).toBe('object');
-      expect(t.plan).toBe('free');
     }
   });
 
@@ -47,9 +46,10 @@ describe('getThemeMeta', () => {
     expect(getThemeMeta('nonexistent')).toBeUndefined();
   });
 
-  it('returns free availability for every bundled theme', () => {
+  it('returns descriptions for bundled themes', () => {
     const meta = getThemeMeta('card');
-    expect(meta!.plan).toBe('free');
+    expect(meta!.description.en).toBe('Social bio links and latest posts');
+    expect(meta!.description.ja).toBe('SNS bio 向けリンクと最新投稿');
   });
 
   it('returns correct displayName', () => {

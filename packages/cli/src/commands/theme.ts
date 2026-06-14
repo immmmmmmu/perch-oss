@@ -9,31 +9,26 @@ const BUNDLED_THEMES: readonly CliThemeMeta[] = [
     id: 'minimal',
     displayName: { ja: 'ミニマル', en: 'Minimal' },
     description: { ja: '軽量で読みやすいページ', en: 'Lightweight reading-first page' },
-    plan: 'free',
   },
   {
     id: 'editorial',
     displayName: { ja: 'エディトリアル', en: 'Editorial' },
     description: { ja: '文章、専門性、信頼感', en: 'Writing, expertise, and trust' },
-    plan: 'free',
   },
   {
     id: 'grid',
     displayName: { ja: 'グリッド', en: 'Grid' },
     description: { ja: '画像つき投稿ギャラリー', en: 'Media-rich post gallery' },
-    plan: 'free',
   },
   {
     id: 'card',
     displayName: { ja: 'カード', en: 'Card' },
     description: { ja: 'SNS bio 向けリンクと最新投稿', en: 'Social bio links and latest posts' },
-    plan: 'free',
   },
   {
     id: 'timeline',
     displayName: { ja: 'タイムライン', en: 'Timeline' },
     description: { ja: '公開活動ログ', en: 'Public activity log' },
-    plan: 'free',
   },
 ];
 

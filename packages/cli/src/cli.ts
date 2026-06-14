@@ -86,7 +86,7 @@ async function main(): Promise<void> {
       if (subCommand === 'list' || !subCommand) {
         const themes = listThemes();
         for (const t of themes) {
-          process.stdout.write(`${t.id.padEnd(12)} ${t.displayName.en.padEnd(16)} [${t.plan}]\n`);
+          process.stdout.write(`${t.id.padEnd(12)} ${t.displayName.en}\n`);
         }
       } else if (subCommand === 'add') {
         const themeName = args[2];

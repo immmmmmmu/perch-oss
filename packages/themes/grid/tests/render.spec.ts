@@ -20,7 +20,7 @@ const feed: NormalizedFeed = {
 
 describe('@perch/theme-grid', () => {
   it('declares the documented metadata', () => {
-    expect(meta).toMatchObject({ id: 'grid', plan: 'free' });
+    expect(meta).toMatchObject({ id: 'grid', displayName: { ja: 'グリッド', en: 'Grid' } });
   });
 
   it('renders ja + en snapshots', () => {

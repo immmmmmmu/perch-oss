@@ -27,7 +27,10 @@ const feed: NormalizedFeed = {
 
 describe('@perch/theme-timeline', () => {
   it('declares the documented metadata', () => {
-    expect(meta).toMatchObject({ id: 'timeline', plan: 'free' });
+    expect(meta).toMatchObject({
+      id: 'timeline',
+      displayName: { ja: 'タイムライン', en: 'Timeline' },
+    });
   });
 
   it('renders ja + en snapshots and orders feed entries by publishedAt desc', () => {

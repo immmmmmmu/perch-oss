@@ -18,7 +18,6 @@ import {
 export const meta: Theme['meta'] = {
   id: 'timeline',
   displayName: { ja: 'タイムライン', en: 'Timeline' },
-  plan: 'free',
 };
 
 function renderMergedFeed(ctx: ThemeContext): string {

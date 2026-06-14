@@ -29,7 +29,10 @@ const feed: NormalizedFeed = {
 
 describe('@perch/theme-editorial', () => {
   it('declares the documented metadata', () => {
-    expect(meta).toMatchObject({ id: 'editorial', plan: 'free' });
+    expect(meta).toMatchObject({
+      id: 'editorial',
+      displayName: { ja: 'エディトリアル', en: 'Editorial' },
+    });
   });
 
   it('renders ja + en snapshots', () => {

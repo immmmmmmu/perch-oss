@@ -18,7 +18,6 @@ import {
 export const meta: Theme['meta'] = {
   id: 'card',
   displayName: { ja: 'カード', en: 'Card' },
-  plan: 'free',
 };
 
 function renderMergedFeed(ctx: ThemeContext): string {

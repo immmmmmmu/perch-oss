@@ -21,7 +21,6 @@ import type { NormalizedItem } from '@perch/core';
 export const meta: Theme['meta'] = {
   id: 'editorial',
   displayName: { ja: 'エディトリアル', en: 'Editorial' },
-  plan: 'free',
 };
 
 function renderProfile(ctx: ThemeContext): string {

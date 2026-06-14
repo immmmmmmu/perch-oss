@@ -2,7 +2,7 @@
   "name": "perch-monorepo",
   "private": true,
   "version": "0.0.0",
-  "description": "perch — 発信し続ける人のための、生きているプロフィールページ (Open Core monorepo)",
+  "description": "perch — 発信し続ける人のための、生きているプロフィールページ (OSS monorepo)",
   "type": "module",
   "engines": {
     "node": ">=22.0.0",

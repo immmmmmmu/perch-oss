@@ -12,7 +12,7 @@ const feed: NormalizedFeed = {
 
 describe('@perch/theme-card', () => {
   it('declares the documented metadata', () => {
-    expect(meta).toMatchObject({ id: 'card', plan: 'free' });
+    expect(meta).toMatchObject({ id: 'card', displayName: { ja: 'カード', en: 'Card' } });
   });
 
   it('renders ja + en snapshots', () => {

@@ -18,7 +18,6 @@ import {
 export const meta: Theme['meta'] = {
   id: 'grid',
   displayName: { ja: 'グリッド', en: 'Grid' },
-  plan: 'free',
 };
 
 function renderMergedFeed(ctx: ThemeContext): string {

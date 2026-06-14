@@ -18,7 +18,6 @@ import {
 export const meta: Theme['meta'] = {
   id: 'minimal',
   displayName: { ja: 'ミニマル', en: 'Minimal' },
-  plan: 'free',
 };
 
 function renderMergedFeed(ctx: ThemeContext): string {

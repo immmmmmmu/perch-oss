@@ -32,7 +32,6 @@ const ctxBase: Omit<ThemeContext, 'locale'> = {
 describe('@perch/theme-minimal', () => {
   it('declares the documented metadata', () => {
     expect(meta.id).toBe('minimal');
-    expect(meta.plan).toBe('free');
     expect(meta.displayName.ja).toBe('ミニマル');
     expect(meta.displayName.en).toBe('Minimal');
   });

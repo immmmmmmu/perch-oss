@@ -54,8 +54,6 @@ export interface PostPageContext {
 export interface ThemeMeta {
   readonly id: string;
   readonly displayName: { readonly ja: string; readonly en: string };
-  /** All bundled themes are available for free. */
-  readonly plan: 'free' | 'pro';
 }
 
 export interface Theme {
