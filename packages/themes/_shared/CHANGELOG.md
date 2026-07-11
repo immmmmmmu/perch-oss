@@ -4,5 +4,5 @@
 
 ### Patch Changes
 
-- Updated dependencies [30dfcad]
+- Updated dependencies [5460338]
   - @perch/core@0.1.0
