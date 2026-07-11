@@ -11,7 +11,9 @@
 
 ## ステータス
 
-開発中。npm public release に向けて API と package boundary を整理しています。
+OSS v0.1 を [GitHub](https://github.com/immmmmmmu/perch-oss) で公開しています。
+
+npm への公開は延期しています。現在は GitHub からクローンして利用・検証してください。
 
 ## Theme Direction
 
@@ -55,17 +57,24 @@ For OSS users, the generated project is designed around a simple editing model:
 project. It tells AI agents which files to read first, which files are generated,
 and how to verify changes.
 
-## クイックスタート（開発）
+## GitHub から試す
 
 ```bash
 # 前提: Node 22+, pnpm 9+
+git clone https://github.com/immmmmmmu/perch-oss.git
+cd perch-oss
 pnpm install
-pnpm typecheck
-pnpm lint
-pnpm test
+pnpm build
+
+# プロフィールプロジェクトを生成
+node packages/cli/dist/cli.mjs new my-profile --yes
+cd my-profile
+
+# 静的サイトを dist/ に生成
+node ../packages/cli/dist/cli.mjs build
 ```
 
-各 package / app の起動方法は当該 README を参照。
+開発時の検証はリポジトリルートで `pnpm typecheck`、`pnpm lint`、`pnpm test` を実行してください。各 package の詳細は当該 README を参照してください。
 
 ## ライセンス
 

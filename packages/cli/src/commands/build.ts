@@ -2,7 +2,7 @@ import { copyFile, cp, mkdir, readdir, readFile, stat, writeFile } from 'node:fs
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
 
-import { fetchOg, loadPosts, parseFeed } from '@perch/core';
+import { fetchOg, loadPosts, parseFeed, resolveFeedSources } from '@perch/core';
 import cardTheme from '@perch/theme-card';
 import editorialTheme from '@perch/theme-editorial';
 import gridTheme from '@perch/theme-grid';
@@ -155,7 +155,8 @@ export async function runBuild(opts: BuildOptions): Promise<void> {
     ...(f.name ? { name: f.name } : {}),
     ...(f.locale ? { locale: f.locale as Locale } : {}),
   }));
-  const fetchedFeeds = await fetchAllFeeds(feedSources, fetchImpl);
+  const resolvedFeedSources = await resolveFeedSources(feedSources, { fetchImpl });
+  const fetchedFeeds = await fetchAllFeeds(resolvedFeedSources, fetchImpl);
   const allFeeds = await hydrateFeedsOgImages([...fetchedFeeds, ...extraFeeds], store, fetchImpl);
 
   const emptyFeed: NormalizedFeed = {
@@ -189,6 +190,7 @@ export async function runBuild(opts: BuildOptions): Promise<void> {
     feed: mergedFeed,
     locale,
     site: themeSite,
+    timeline: config.timeline,
     posts: posts.length > 0 ? posts : undefined,
   };
 

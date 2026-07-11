@@ -42,7 +42,12 @@ describe('@perch/theme-editorial', () => {
       avatarUrl: './avatar.png',
       links: [
         { label: 'Newsletter', href: 'https://example.com/newsletter' },
+        {
+          label: 'Substack dispatches for independent publishing teams',
+          href: 'https://example.com/substack',
+        },
         { label: 'GitHub', href: 'https://github.com/example' },
+        { label: 'Company', href: 'https://example.com/company' },
       ],
     };
     expect(editorial.render({ profile, feed, locale: 'ja' })).toMatchSnapshot('ja');
@@ -68,5 +73,51 @@ describe('@perch/theme-editorial', () => {
     expect(html).toContain('<strong>independent publishing</strong>');
     expect(html).toContain('Monthly notes and essays.');
     expect(html).toContain('Profile links');
+  });
+
+  it('keeps long Japanese titles and many profile links inside editorial layout bounds', () => {
+    const html = editorial.render({
+      profile: {
+        displayName: '長いプロフィール名でも折り返して読みやすい発信者',
+        links: [
+          { label: 'note', href: 'https://note.com/example' },
+          { label: 'Substack', href: 'https://substack.com/@example' },
+          { label: 'X (Twitter)', href: 'https://x.com/example' },
+          { label: 'here-now (会社)', href: 'https://example.com/company' },
+          {
+            label: 'とても長いリンク名でも壊れないプロフィールリンク',
+            href: 'https://example.com/very-long-link',
+          },
+        ],
+      },
+      feed: {
+        source: { url: 'https://example.com/feed', name: 'note 記事' },
+        fetchedAt: '2026-05-01T00:00:00.000Z',
+        items: [
+          {
+            id: 'jp-1',
+            url: 'https://example.com/articles/jp-1',
+            title: 'AI時代の開発組織における問いの設計とレビュー文化をめぐる長い日本語タイトル',
+            publishedAt: '2026-04-30T00:00:00.000Z',
+            summary: '長い抜粋でも本文列の幅に収まることを確認するためのサマリーです。',
+            source: { url: 'https://example.com/feed', name: 'note 記事' },
+          },
+          {
+            id: 'jp-2',
+            url: 'https://example.com/articles/jp-2',
+            title: 'OGP画像つきの記事',
+            publishedAt: '2026-04-29T00:00:00.000Z',
+            ogImageUrl: 'https://example.com/og.png',
+            source: { url: 'https://example.com/feed', name: 'note 記事' },
+          },
+        ],
+      },
+      locale: 'ja',
+    });
+
+    expect(html).toContain('perch-editorial-title');
+    expect(html).toContain('sm:grid-cols-2 lg:grid-cols-1');
+    expect(html).toContain('sm:grid-cols-[minmax(0,1fr)_13rem]');
+    expect(html).toContain('AI時代の開発組織における問いの設計');
   });
 });

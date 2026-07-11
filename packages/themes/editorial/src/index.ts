@@ -34,13 +34,13 @@ function renderProfile(ctx: ThemeContext): string {
       : '';
   const links = renderProfileLinks(ctx);
 
-  return `<header class="border-b border-stone-300 pb-10">
-<div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-<div class="space-y-5">
+  return `<header class="border-b border-stone-300 pb-10 sm:pb-12">
+<div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:gap-12">
+<div class="space-y-6">
 ${avatar}
 <div class="space-y-4">
 <p class="text-xs font-semibold uppercase text-stone-500">Profile</p>
-<h1 class="max-w-3xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">${escapeHtml(ctx.profile.displayName)}</h1>
+<h1 class="perch-editorial-title max-w-3xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">${escapeHtml(ctx.profile.displayName)}</h1>
 ${bio}
 </div>
 </div>
@@ -58,15 +58,15 @@ function renderProfileLinks(ctx: ThemeContext): string {
       const description = link.description
         ? `<p class="mt-1 text-sm leading-6 text-stone-600">${escapeHtml(link.description)}</p>`
         : '';
-      return `<li>
-<a href="${escapeAttr(link.href)}" class="text-sm font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950" rel="noopener" target="_blank">${escapeHtml(link.label)}</a>
+      return `<li class="min-w-0">
+<a href="${escapeAttr(link.href)}" class="perch-editorial-link text-sm font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4 transition hover:decoration-stone-950" rel="noopener" target="_blank">${escapeHtml(link.label)}</a>
 ${description}
 </li>`;
     })
     .join('');
 
-  return `<nav aria-label="Profile links" class="border-t border-stone-200 pt-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-<ul class="space-y-4">${items}</ul>
+  return `<nav aria-label="Profile links" class="border-t border-stone-200 pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-1">
+<ul class="grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-1">${items}</ul>
 </nav>`;
 }
 
@@ -81,13 +81,16 @@ function renderPost(item: NormalizedItem, ctx: ThemeContext): string {
     ? `<p class="mt-3 max-w-2xl text-sm leading-6 text-stone-600">${escapeHtml(item.summary)}</p>`
     : '';
   const localeAttr = item.locale ? ` lang="${escapeAttr(item.locale)}"` : '';
+  const rowClass = image
+    ? 'grid gap-5 border-b border-stone-200 py-6 sm:grid-cols-[minmax(0,1fr)_13rem]'
+    : 'grid gap-5 border-b border-stone-200 py-6';
 
-  return `<li class="grid gap-5 border-b border-stone-200 py-6 sm:grid-cols-[1fr_auto]"${localeAttr}>
-<article>
+  return `<li class="${rowClass}"${localeAttr}>
+<article class="min-w-0">
 <div class="mb-2 flex flex-wrap items-center gap-2 text-xs font-medium uppercase text-stone-500">
 ${source}<time datetime="${escapeAttr(item.publishedAt)}">${escapeHtml(formatPostDate(item.publishedAt, ctx.locale))}</time>
 </div>
-<h3 class="text-xl font-semibold leading-snug text-stone-950">
+<h3 class="perch-editorial-title text-xl font-semibold leading-snug text-stone-950">
 <a href="${escapeAttr(item.url)}" class="decoration-stone-400 decoration-1 underline-offset-4 hover:underline" rel="noopener" target="_blank">${escapeHtml(item.title)}</a>
 </h3>
 ${summary}
@@ -99,8 +102,9 @@ ${image ? `<a href="${escapeAttr(item.url)}" rel="noopener" target="_blank" aria
 function renderPosts(ctx: ThemeContext): string {
   const profileUrl = ctx.site?.url ?? '';
   const merged = mergeTimeline(ctx.posts ?? [], ctx.feed.items, { profileUrl });
+  const visible = ctx.timeline?.maxItems ? merged.slice(0, ctx.timeline.maxItems) : merged;
 
-  const posts = merged.map((item) => renderPost(item, ctx)).join('');
+  const posts = visible.map((item) => renderPost(item, ctx)).join('');
 
   return `<section class="pt-8">
 <div class="mb-2">

@@ -15,6 +15,9 @@ const config: PerchConfig = {
     perPage: 10,
     showInTimeline: true,
   },
+  timeline: {
+    maxItems: undefined,
+  },
 };
 
 export default config;

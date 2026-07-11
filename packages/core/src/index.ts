@@ -27,6 +27,11 @@ export type {
 
 export { defineSource } from './source/define.js';
 export { fetchFeeds } from './feed/fetchFeeds.js';
+export {
+  resolveFeedSource,
+  resolveFeedSources,
+  type ResolveFeedSourceOptions,
+} from './feed/resolveFeedSource.js';
 export { parseFeed, UnsupportedFeedError } from './parse/index.js';
 export type { ParseResult } from './parse/index.js';
 export { fetchOg } from './og/index.js';

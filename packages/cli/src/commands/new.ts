@@ -68,6 +68,8 @@ feeds: []
   #   name: "My Blog"
   # - url: "https://zenn.dev/yourname/feed"
   #   name: "Zenn"
+  # - url: "https://www.youtube.com/@yourchannel"
+  #   name: "YouTube"
 
 # Posts: markdown files in ./posts with frontmatter will be published as HTML.
 posts:

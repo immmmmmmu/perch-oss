@@ -1,6 +1,6 @@
 # @perch/theme-editorial
 
-`editorial` is a long-form, magazine-style `perch` theme — generous typography, lead images, and a Hero quote slot. Designed for writers and essayists.
+`editorial` is a long-form, magazine-style `perch` theme with generous typography, image-aware timeline rows, and a compact profile link rail. It is designed for writers, founders, and essayists with a public publishing trail.
 
 License: MIT
 
@@ -23,7 +23,6 @@ This package ships TypeScript / Astro sources directly (`main: ./src/index.ts`).
 ## Customizing
 
 - Override Tailwind tokens via `tailwind.config.ts` in your project root
-- Provide a Hero quote and lead image via `perch.config.yaml > themeOptions`
 - Article cards inherit OGP from `@perch/core/og` (no extra config)
 
 See `packages/cli/README.md` for the full editing model.

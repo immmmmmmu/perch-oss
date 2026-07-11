@@ -65,6 +65,23 @@ feeds: []
     expect(config.theme).toBe('minimal');
   });
 
+  it('loads timeline maxItems from YAML config', async () => {
+    const configPath = join(tmpDir, 'perch.config.yaml');
+    writeFileSync(
+      configPath,
+      `
+profile:
+  name: "Test User"
+locale: ja
+feeds: []
+timeline:
+  maxItems: 15
+`,
+    );
+    const config = await loadConfig(configPath);
+    expect(config.timeline.maxItems).toBe(15);
+  });
+
   it('loads profile markdown relative to the config file', async () => {
     const configPath = join(tmpDir, 'perch.config.yaml');
     writeFileSync(

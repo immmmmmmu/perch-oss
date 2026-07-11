@@ -56,6 +56,15 @@ const postsSectionSchema = postsSectionInnerSchema
   z.infer<typeof postsSectionInnerSchema>
 >;
 
+const timelineSectionInnerSchema = z.object({
+  maxItems: z.number().int().positive().max(100).optional(),
+});
+
+const timelineSectionSchema = timelineSectionInnerSchema.optional().transform((v) => {
+  const parsed = timelineSectionInnerSchema.parse(v ?? {});
+  return { maxItems: parsed.maxItems };
+}) as z.ZodType<{ readonly maxItems: number | undefined }>;
+
 const perchConfigSchema = z.object({
   profile: profileSchema,
   site: siteSchema.optional(),
@@ -63,6 +72,7 @@ const perchConfigSchema = z.object({
   theme: z.string().default('minimal'),
   feeds: z.array(feedSourceSchema).default([]),
   posts: postsSectionSchema,
+  timeline: timelineSectionSchema,
 });
 
 export type PostsSectionConfig = Readonly<z.infer<typeof postsSectionInnerSchema>>;
