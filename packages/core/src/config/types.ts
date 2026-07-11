@@ -46,6 +46,15 @@ const postsSectionSchema = postsSectionInnerSchema
   .optional()
   .transform((v) => postsSectionInnerSchema.parse(v ?? {}));
 
+const timelineSectionInnerSchema = z.object({
+  maxItems: z.number().int().positive().max(100).optional(),
+});
+
+const timelineSectionSchema = timelineSectionInnerSchema.optional().transform((v) => {
+  const parsed = timelineSectionInnerSchema.parse(v ?? {});
+  return { maxItems: parsed.maxItems };
+});
+
 export const perchConfigSchema = z.object({
   profile: profileSchema,
   site: siteSchema.optional(),
@@ -53,8 +62,10 @@ export const perchConfigSchema = z.object({
   theme: z.string().default('minimal'),
   feeds: z.array(feedSourceSchema).default([]),
   posts: postsSectionSchema,
+  timeline: timelineSectionSchema,
 });
 
 export type PerchConfig = Readonly<z.infer<typeof perchConfigSchema>>;
 export type ProfileConfig = Readonly<z.infer<typeof profileSchema>>;
 export type PostsSectionConfig = Readonly<z.infer<typeof postsSectionSchema>>;
+export type TimelineSectionConfig = Readonly<z.infer<typeof timelineSectionSchema>>;

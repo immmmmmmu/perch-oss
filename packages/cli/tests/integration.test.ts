@@ -57,6 +57,9 @@ describe('defineSource adapter integration', () => {
         perPage: 10,
         showInTimeline: true,
       },
+      timeline: {
+        maxItems: undefined,
+      },
     };
 
     const outDir = join(tmpDir, 'dist');
@@ -110,6 +113,9 @@ describe('defineSource adapter integration', () => {
         assetsDir: './assets',
         perPage: 10,
         showInTimeline: true,
+      },
+      timeline: {
+        maxItems: undefined,
       },
     };
 

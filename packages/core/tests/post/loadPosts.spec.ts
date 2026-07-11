@@ -16,6 +16,9 @@ const baseConfig: PerchConfig = {
     perPage: 10,
     showInTimeline: true,
   },
+  timeline: {
+    maxItems: undefined,
+  },
 };
 
 function makePost(

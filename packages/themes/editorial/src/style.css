@@ -23,6 +23,11 @@
   font-weight: 600;
 }
 
+.perch-editorial-title,
+.perch-editorial-link {
+  overflow-wrap: anywhere;
+}
+
 .perch-profile-body ul,
 .perch-profile-body ol {
   padding-left: 1.25rem;

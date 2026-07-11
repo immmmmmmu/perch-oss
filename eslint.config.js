@@ -52,14 +52,10 @@ export default tseslint.config(
       'unused-imports': unusedImports,
     },
     rules: {
-      'import/order': [
-        'error',
-        {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc', caseInsensitive: true },
-        },
-      ],
+      // eslint-plugin-import@2.32.0 is not fully compatible with ESLint 10
+      // and can crash in import/order. Re-enable after the plugin supports
+      // the active ESLint major.
+      'import/order': 'off',
       'unused-imports/no-unused-imports': 'error',
       '@typescript-eslint/no-unused-vars': [
         'error',

@@ -36,6 +36,9 @@ describe('loadConfig', () => {
       perPage: 10,
       showInTimeline: true,
     });
+    expect(result.value.timeline).toEqual({
+      maxItems: undefined,
+    });
   });
 
   it('respects explicit posts section', () => {
@@ -45,6 +48,21 @@ describe('loadConfig', () => {
     expect(result.value.posts.enabled).toBe(true);
     expect(result.value.posts.perPage).toBe(5);
     expect(result.value.posts.dir).toBe('./posts');
+  });
+
+  it('respects explicit timeline section', () => {
+    const result = loadConfig(`
+profile:
+  name: Test User
+locale: ja
+theme: editorial
+feeds: []
+timeline:
+  maxItems: 15
+`);
+    expect(result.ok).toBe(true);
+    if (!result.ok) throw new Error('unreachable');
+    expect(result.value.timeline.maxItems).toBe(15);
   });
 
   it('returns error on invalid YAML', () => {

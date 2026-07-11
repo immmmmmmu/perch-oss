@@ -34,6 +34,10 @@ export interface ThemeContext {
   readonly feed: NormalizedFeed;
   readonly locale: SupportedLocale;
   readonly site?: ThemeSite;
+  /** プロフィールトップの集約タイムライン表示設定。 */
+  readonly timeline?: {
+    readonly maxItems?: number;
+  };
   /** perch ブログ機能で書かれた記事。テーマは showInTimeline=true 想定で表示する。 */
   readonly posts?: readonly Post[];
   /** posts ページ用のページング情報。一覧ページ生成時に renderer から渡される。 */

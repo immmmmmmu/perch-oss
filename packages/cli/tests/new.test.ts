@@ -121,6 +121,7 @@ describe('runNew', () => {
     expect(yaml).toContain('public/avatar.png');
     expect(yaml).toContain('feeds:');
     expect(yaml).toContain('Replace this with your RSS');
+    expect(yaml).toContain('https://www.youtube.com/@yourchannel');
   });
 
   it('creates AGENTS.md with AI editing instructions', async () => {
