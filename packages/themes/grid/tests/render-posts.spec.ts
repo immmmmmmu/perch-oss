@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import theme from '../src/index.js';
 
-import type { PostPageContext, ThemeContext } from '@perch/themes-shared';
+import type { PostPageContext, ThemeContext } from '@perch-app/themes-shared';
 
 const baseCtx: ThemeContext = {
   profile: { displayName: 'Test' },

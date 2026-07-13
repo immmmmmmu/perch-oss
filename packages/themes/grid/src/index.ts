@@ -1,4 +1,4 @@
-import { mergeTimeline } from '@perch/core';
+import { mergeTimeline } from '@perch-app/core';
 import {
   escapeHtml,
   feedHeading,
@@ -13,7 +13,7 @@ import {
   type Theme,
   type ThemeContext,
   type PostPageContext,
-} from '@perch/themes-shared';
+} from '@perch-app/themes-shared';
 
 export const meta: Theme['meta'] = {
   id: 'grid',

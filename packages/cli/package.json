@@ -1,5 +1,5 @@
 {
-  "name": "@perch/cli",
+  "name": "@perch-app/cli",
   "version": "0.1.0",
   "description": "CLI for self-hosted perch profile pages.",
   "keywords": [
@@ -56,13 +56,13 @@
   },
   "dependencies": {
     "@clack/prompts": "^1.4.0",
-    "@perch/core": "workspace:*",
-    "@perch/theme-card": "workspace:*",
-    "@perch/theme-editorial": "workspace:*",
-    "@perch/theme-grid": "workspace:*",
-    "@perch/theme-minimal": "workspace:*",
-    "@perch/theme-timeline": "workspace:*",
-    "@perch/themes-shared": "workspace:*",
+    "@perch-app/core": "workspace:*",
+    "@perch-app/theme-card": "workspace:*",
+    "@perch-app/theme-editorial": "workspace:*",
+    "@perch-app/theme-grid": "workspace:*",
+    "@perch-app/theme-minimal": "workspace:*",
+    "@perch-app/theme-timeline": "workspace:*",
+    "@perch-app/themes-shared": "workspace:*",
     "js-yaml": "^5.0.0",
     "marked": "^18.0.3",
     "zod": "^4.4.2"

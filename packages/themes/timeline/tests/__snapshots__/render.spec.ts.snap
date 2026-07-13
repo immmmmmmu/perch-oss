@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`@perch/theme-timeline > renders ja + en snapshots and orders feed entries by publishedAt desc > en 1`] = `
+exports[`@perch-app/theme-timeline > renders ja + en snapshots and orders feed entries by publishedAt desc > en 1`] = `
 "<!doctype html><html lang="en"><head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>timeline sample</title>
-<meta name="generator" content="@perch/themes:timeline" />
+<meta name="generator" content="@perch-app/theme-timeline" />
 <link rel="stylesheet" href="./style.css" />
 <meta property="og:title" content="timeline sample" />
 <meta property="og:type" content="website" />
@@ -28,12 +28,12 @@ exports[`@perch/theme-timeline > renders ja + en snapshots and orders feed entri
 </body></html>"
 `;
 
-exports[`@perch/theme-timeline > renders ja + en snapshots and orders feed entries by publishedAt desc > ja 1`] = `
+exports[`@perch-app/theme-timeline > renders ja + en snapshots and orders feed entries by publishedAt desc > ja 1`] = `
 "<!doctype html><html lang="ja"><head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>timeline sample</title>
-<meta name="generator" content="@perch/themes:timeline" />
+<meta name="generator" content="@perch-app/theme-timeline" />
 <link rel="stylesheet" href="./style.css" />
 <meta property="og:title" content="timeline sample" />
 <meta property="og:type" content="website" />

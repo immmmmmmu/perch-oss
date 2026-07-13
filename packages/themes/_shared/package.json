@@ -1,7 +1,7 @@
 {
-  "name": "@perch/themes-shared",
+  "name": "@perch-app/themes-shared",
   "version": "0.0.1",
-  "description": "Shared rendering primitives for @perch/themes/*.",
+  "description": "Shared rendering primitives for @perch-app/theme-*.",
   "keywords": [
     "perch",
     "theme",
@@ -45,6 +45,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@perch/core": "workspace:*"
+    "@perch-app/core": "workspace:*"
   }
 }

@@ -3,6 +3,8 @@ import { join } from 'node:path';
 
 import * as p from '@clack/prompts';
 
+import cliPackage from '../../package.json' with { type: 'json' };
+
 export interface NewOptions {
   readonly projectDir: string;
   readonly defaults: boolean;
@@ -112,6 +114,31 @@ tags: [welcome]
 `;
 }
 
+export function buildPackageJson(): string {
+  return `${JSON.stringify(
+    {
+      name: 'perch-profile',
+      private: true,
+      version: '0.0.0',
+      type: 'module',
+      scripts: {
+        build: 'perch build',
+        dev: 'perch dev',
+      },
+      devDependencies: {
+        '@perch-app/cli': cliPackage.version,
+      },
+      packageManager: 'pnpm@9.15.4',
+      engines: {
+        node: '>=22.0.0',
+        pnpm: '>=9.0.0',
+      },
+    },
+    null,
+    2,
+  )}\n`;
+}
+
 export function buildAgentsMd(): string {
   return `# perch profile project
 
@@ -143,16 +170,16 @@ Do not edit \`.perch/\`. It is local cache data.
 
 ## Build And Check
 
-Run \`perch build\` after changing \`perch.config.yaml\` or files in \`public/\`:
+Run \`pnpm build\` after changing \`perch.config.yaml\` or files in \`public/\`:
 
 \`\`\`bash
-perch build
+pnpm build
 \`\`\`
 
 For local preview, run:
 
 \`\`\`bash
-perch dev
+pnpm dev
 \`\`\`
 
 ## Editing Rules For AI Agents
@@ -173,10 +200,11 @@ This is a self-hosted perch profile page.
 
 ## Quick Start
 
-1. Edit \`perch.config.yaml\`.
-2. Replace assets in \`public/\`.
-3. Run \`perch build\`.
-4. Publish the generated \`dist/\` directory.
+1. Run \`pnpm install\`.
+2. Edit \`perch.config.yaml\`.
+3. Replace assets in \`public/\`.
+4. Run \`pnpm build\`.
+5. Publish the generated \`dist/\` directory.
 
 ## What To Edit
 
@@ -191,8 +219,8 @@ Do not edit \`dist/\`; it is generated output.
 ## Local Preview
 
 \`\`\`bash
-perch build
-perch dev
+pnpm build
+pnpm dev
 \`\`\`
 
 ## Keeping RSS Fresh
@@ -235,7 +263,7 @@ The workflow:
 - runs on push
 - runs on a schedule
 - runs manually via workflow dispatch
-- executes \`perch build\`
+- executes \`pnpm build\`
 - uploads \`dist/\` as a deployable artifact
 
 If you publish to GitHub Pages, add the official Pages deploy step after the artifact upload.
@@ -253,7 +281,7 @@ Set \`CLOUDFLARE_API_TOKEN\` and \`CLOUDFLARE_ACCOUNT_ID\` as repository secrets
 On a VPS or another always-on machine, run:
 
 \`\`\`cron
-0 * * * * cd /path/to/profile && perch build && rsync -a dist/ /var/www/profile/
+0 * * * * cd /path/to/profile && pnpm build && rsync -a dist/ /var/www/profile/
 \`\`\`
 
 Hourly is a good default. Daily is enough if your feeds update rarely.
@@ -263,7 +291,7 @@ Hourly is a good default. Daily is enough if your feeds update rarely.
 For occasional updates:
 
 \`\`\`bash
-perch build
+pnpm build
 # then upload dist/ to your host
 \`\`\`
 
@@ -297,13 +325,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 9.15.4
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run perch build
-        run: npx @perch/cli build
+        run: pnpm build
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v4
@@ -427,6 +464,7 @@ export async function runNew(opts: NewOptions): Promise<void> {
   await mkdir(join(opts.projectDir, '.github', 'workflows'), { recursive: true });
 
   const configYaml = buildConfigYaml(params);
+  await writeFile(join(opts.projectDir, 'package.json'), buildPackageJson(), 'utf8');
   await writeFile(join(opts.projectDir, 'perch.config.yaml'), configYaml, 'utf8');
   await writeFile(join(opts.projectDir, 'profile.md'), buildProfileMd(params), 'utf8');
   await writeFile(join(opts.projectDir, 'AGENTS.md'), buildAgentsMd(), 'utf8');

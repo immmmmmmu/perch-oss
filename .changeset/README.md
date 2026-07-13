@@ -1,6 +1,6 @@
 # Changesets
 
-このディレクトリは [Changesets](https://github.com/changesets/changesets) が管理する。OSS パッケージ（`@perch/core`, `@perch/cli`, `@perch/themes`, `@perch/i18n`）の semver と CHANGELOG を扱う。
+このディレクトリは [Changesets](https://github.com/changesets/changesets) が管理する。OSS パッケージ（`@perch-app/core`, `@perch-app/cli`, `@perch-app/i18n`, `@perch-app/themes-shared`, `@perch-app/theme-*`）の semver と CHANGELOG を扱う。
 
 ## 使い方
 

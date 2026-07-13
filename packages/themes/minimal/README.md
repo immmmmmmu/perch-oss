@@ -1,4 +1,4 @@
-# @perch/theme-minimal
+# @perch-app/theme-minimal
 
 `minimal` is the default `perch` theme — a single-column, system-font, low-chrome layout that puts the writer's links and posts first.
 
@@ -12,13 +12,13 @@ theme: minimal
 ```
 
 ```bash
-pnpm add @perch/theme-minimal
+pnpm add @perch-app/theme-minimal
 perch build
 ```
 
 ## Consumption model
 
-This package ships TypeScript / Astro sources directly (`main: ./src/index.ts`). It is consumed by `@perch/cli` through Astro / Vite, which resolve TS at build time. **Pure-Node consumers (no bundler) are not supported** in v0.1.
+This package ships TypeScript / Astro sources directly (`main: ./src/index.ts`). It is consumed by `@perch-app/cli` through Astro / Vite, which resolve TS at build time. **Pure-Node consumers (no bundler) are not supported** in v0.1.
 
 ## Customizing
 

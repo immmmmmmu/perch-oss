@@ -1,4 +1,4 @@
-# @perch/i18n
+# @perch-app/i18n
 
 Type-safe i18n messages for `perch`, powered by [Paraglide JS 2](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
 

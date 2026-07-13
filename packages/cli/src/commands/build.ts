@@ -2,18 +2,24 @@ import { copyFile, cp, mkdir, readdir, readFile, stat, writeFile } from 'node:fs
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
 
-import { fetchOg, loadPosts, parseFeed, resolveFeedSources } from '@perch/core';
-import cardTheme from '@perch/theme-card';
-import editorialTheme from '@perch/theme-editorial';
-import gridTheme from '@perch/theme-grid';
-import minimalTheme from '@perch/theme-minimal';
-import timelineTheme from '@perch/theme-timeline';
+import { fetchOg, loadPosts, parseFeed, resolveFeedSources } from '@perch-app/core';
+import cardTheme from '@perch-app/theme-card';
+import editorialTheme from '@perch-app/theme-editorial';
+import gridTheme from '@perch-app/theme-grid';
+import minimalTheme from '@perch-app/theme-minimal';
+import timelineTheme from '@perch-app/theme-timeline';
 
 import { FsOgStore } from '../storage/FsOgStore.js';
 
 import type { PerchConfig } from '../config-loader.js';
-import type { FeedSource, Locale, NormalizedFeed, NormalizedItem, PostSource } from '@perch/core';
-import type { Theme, ThemeContext, ThemeProfile, ThemeSite } from '@perch/themes-shared';
+import type {
+  FeedSource,
+  Locale,
+  NormalizedFeed,
+  NormalizedItem,
+  PostSource,
+} from '@perch-app/core';
+import type { Theme, ThemeContext, ThemeProfile, ThemeSite } from '@perch-app/themes-shared';
 
 const require = createRequire(import.meta.url);
 
@@ -284,7 +290,7 @@ async function copyPublicDir(publicDir: string, outDir: string): Promise<void> {
 
 async function copyThemeStyle(themeId: string, outDir: string): Promise<void> {
   const validThemeId = THEMES[themeId] ? themeId : 'minimal';
-  const pkgName = `@perch/theme-${validThemeId}`;
+  const pkgName = `@perch-app/theme-${validThemeId}`;
   try {
     const styleSrc = require.resolve(`${pkgName}/style.css`);
     await copyFile(styleSrc, join(outDir, 'style.css'));

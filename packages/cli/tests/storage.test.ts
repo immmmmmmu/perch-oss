@@ -6,7 +6,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 
 import { FsOgStore } from '../src/storage/FsOgStore.js';
 
-import type { OgMetadata } from '@perch/core';
+import type { OgMetadata } from '@perch-app/core';
 
 let tmpDir: string;
 

@@ -1,4 +1,4 @@
-// @perch/core — public API surface.
+// @perch-app/core — public API surface.
 // This file is the ONLY publicly exported module; everything under
 // `_internal/` is treated as private (enforced by the build configuration in
 // `tsup.config.ts` and verified by the `attw` job in CI).

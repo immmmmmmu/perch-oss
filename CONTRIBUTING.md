@@ -27,7 +27,7 @@
 ## 2. 開発ワークフロー
 
 - TDD（Red → Green → Refactor）必須
-- 80% カバレッジ閾値（`@perch/core` は 90%）
+- 80% カバレッジ閾値（`@perch-app/core` は 90%）
 
 ## 3. コミュニケーション
 

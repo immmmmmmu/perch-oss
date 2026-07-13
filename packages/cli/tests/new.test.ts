@@ -4,6 +4,7 @@ import { join } from 'node:path';
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
+import cliPackage from '../package.json' with { type: 'json' };
 import {
   runNew,
   buildConfigYaml,
@@ -71,6 +72,25 @@ describe('promptProjectParams', () => {
     expect(typeof result.locale).toBe('string');
     expect(typeof result.theme).toBe('string');
   });
+
+  it('reports cancellation and exits without creating a project', async () => {
+    const { cancel, group } = await import('@clack/prompts');
+    vi.mocked(group).mockImplementationOnce((_tasks, options) => {
+      options?.onCancel?.({} as never);
+      return Promise.resolve({ name: '', bio: '', locale: '', theme: '' });
+    });
+    const exit = vi.spyOn(process, 'exit').mockImplementation(() => {
+      throw new Error('process.exit(0)');
+    });
+
+    await expect(
+      promptProjectParams({ name: 'Default', bio: 'Bio', locale: 'ja', theme: 'minimal' }),
+    ).rejects.toThrow('process.exit(0)');
+    expect(cancel).toHaveBeenCalledWith('Setup cancelled.');
+    expect(exit).toHaveBeenCalledWith(0);
+
+    exit.mockRestore();
+  });
 });
 
 describe('runNew', () => {
@@ -131,7 +151,7 @@ describe('runNew', () => {
     expect(agents).toContain('perch profile project');
     expect(agents).toContain('Start with `perch.config.yaml`');
     expect(agents).toContain('Do not edit `dist/`');
-    expect(agents).toContain('Run `perch build`');
+    expect(agents).toContain('Run `pnpm build`');
   });
 
   it('creates human onboarding docs for self-hosted usage', async () => {
@@ -140,7 +160,7 @@ describe('runNew', () => {
     const readme = readFileSync(join(target, 'README.md'), 'utf8');
     const deployment = readFileSync(join(target, 'docs', 'deployment.md'), 'utf8');
     expect(readme).toContain('Edit `perch.config.yaml`');
-    expect(readme).toContain('Run `perch build`');
+    expect(readme).toContain('Run `pnpm build`');
     expect(deployment).toContain('RSS updates are not reflected until a new build runs');
     expect(deployment).toContain('GitHub Actions');
     expect(deployment).toContain('cron');
@@ -153,6 +173,38 @@ describe('runNew', () => {
     expect(workflow).toContain('schedule:');
     expect(workflow).toContain('perch build');
     expect(workflow).toContain('dist/');
+  });
+
+  it('creates a package manifest with a pinned CLI and build scripts', async () => {
+    const target = join(tmpDir, 'installable-profile');
+    await runNew({ projectDir: target, defaults: true });
+
+    const packageJson = JSON.parse(readFileSync(join(target, 'package.json'), 'utf8')) as Record<
+      string,
+      unknown
+    >;
+
+    expect(packageJson).toMatchObject({
+      private: true,
+      scripts: {
+        build: 'perch build',
+        dev: 'perch dev',
+      },
+      devDependencies: {
+        '@perch-app/cli': cliPackage.version,
+      },
+    });
+  });
+
+  it('installs locked dependencies before running the generated build workflow', async () => {
+    const target = join(tmpDir, 'pinned-workflow-profile');
+    await runNew({ projectDir: target, defaults: true });
+
+    const workflow = readFileSync(join(target, '.github', 'workflows', 'perch-build.yml'), 'utf8');
+
+    expect(workflow).toContain('pnpm install --frozen-lockfile');
+    expect(workflow).toContain('pnpm build');
+    expect(workflow).not.toContain('npx @perch-app/cli');
   });
 
   it('creates .gitignore', async () => {

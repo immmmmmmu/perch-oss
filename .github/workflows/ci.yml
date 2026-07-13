@@ -41,10 +41,10 @@ jobs:
       - name: Compile i18n (Paraglide)
         run: pnpm i18n:compile
 
-      # @perch/core ships built artifacts (dist/); downstream type resolution
+      # @perch-app/core ships built artifacts (dist/); downstream type resolution
       # needs them present before lint runs in typed mode.
-      - name: Build @perch/core (so downstream types resolve)
-        run: pnpm --filter @perch/core build
+      - name: Build @perch-app/core (so downstream types resolve)
+        run: pnpm --filter @perch-app/core build
 
       - name: Format check
         run: pnpm format:check
@@ -60,8 +60,8 @@ jobs:
       - name: Test
         run: pnpm test
 
-      - name: OSS coverage (@perch/core, @perch/i18n)
-        run: pnpm --filter @perch/core --filter @perch/i18n exec vitest run --coverage
+      - name: OSS coverage (@perch-app/core, @perch-app/i18n)
+        run: pnpm --filter @perch-app/core --filter @perch-app/i18n exec vitest run --coverage
 
       - name: Build
         run: pnpm build
@@ -96,9 +96,9 @@ jobs:
       - name: Compile i18n (Paraglide)
         run: pnpm i18n:compile
 
-      # @perch/cli depends on @perch/core's built dist/ for type resolution.
-      - name: Build @perch/core (so downstream types resolve)
-        run: pnpm --filter @perch/core build
+      # @perch-app/cli depends on @perch-app/core's built dist/ for type resolution.
+      - name: Build @perch-app/core (so downstream types resolve)
+        run: pnpm --filter @perch-app/core build
 
-      - name: Bun typecheck of @perch/cli
+      - name: Bun typecheck of @perch-app/cli
         run: bun --bun tsc --noEmit --project packages/cli/tsconfig.json

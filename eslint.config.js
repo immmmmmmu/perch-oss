@@ -68,7 +68,7 @@ export default tseslint.config(
       'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
-  // Keep @perch/core framework-agnostic.
+  // Keep @perch-app/core framework-agnostic.
   {
     files: ['packages/core/**/*.{ts,tsx}'],
     rules: {
@@ -79,7 +79,7 @@ export default tseslint.config(
             {
               group: ['cloudflare:*'],
               message:
-                '@perch/core must not depend on Cloudflare runtime bindings. Use the injected Storage/OgStore interface instead.',
+                '@perch-app/core must not depend on Cloudflare runtime bindings. Use the injected Storage/OgStore interface instead.',
             },
           ],
         },

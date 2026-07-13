@@ -112,7 +112,7 @@ async function main(): Promise<void> {
 
 function printHelp(): void {
   process.stdout.write(
-    `@perch/cli — self-hosted profile page generator
+    `@perch-app/cli — self-hosted profile page generator
 
 Usage:
   perch new <project-name> [--yes]

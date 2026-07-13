@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import type { OgMetadata, OgStore } from '@perch/core';
+import type { OgMetadata, OgStore } from '@perch-app/core';
 
 export class FsOgStore implements OgStore {
   constructor(private readonly dir: string) {}

@@ -1,10 +1,10 @@
 // Shared theme contract. Each theme exports a `Theme` describing its metadata
 // and a `render(ctx)` function that returns deterministic HTML.
 //
-// Themes are intentionally framework-agnostic. `@perch/cli` consumes the same
+// Themes are intentionally framework-agnostic. `@perch-app/cli` consumes the same
 // interface for self-hosted builds.
 
-import type { NormalizedFeed, Post } from '@perch/core';
+import type { NormalizedFeed, Post } from '@perch-app/core';
 
 export type SupportedLocale = 'ja' | 'en';
 

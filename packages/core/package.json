@@ -1,5 +1,5 @@
 {
-  "name": "@perch/core",
+  "name": "@perch-app/core",
   "version": "0.1.0",
   "description": "Framework-agnostic core for fetching, normalizing, and OG-extracting feeds.",
   "keywords": [

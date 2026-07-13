@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { m, setLocale, getLocale, SUPPORTED_LOCALES } from '../src/index.js';
 
-describe('@perch/i18n runtime', () => {
+describe('@perch-app/i18n runtime', () => {
   it('exposes ja and en in SUPPORTED_LOCALES', () => {
     expect([...SUPPORTED_LOCALES].sort()).toEqual(['en', 'ja']);
   });

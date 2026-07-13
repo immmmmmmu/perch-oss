@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 
 import { githubReleasesSource } from '../src/source-sdk.js';
 
-import type { NormalizedFeed } from '@perch/core';
+import type { NormalizedFeed } from '@perch-app/core';
 
 describe('githubReleasesSource', () => {
   it('has correct source id', () => {
@@ -65,5 +65,32 @@ describe('githubReleasesSource', () => {
       fetchImpl: fakeFetch,
     });
     expect(result.items).toHaveLength(0);
+  });
+
+  it('falls back to the tag and omits optional release metadata', async () => {
+    const fakeFetch: typeof fetch = () =>
+      Promise.resolve(
+        Response.json([
+          {
+            id: 12346,
+            html_url: 'https://github.com/owner/repo/releases/tag/v1.0.1',
+            tag_name: 'v1.0.1',
+            name: null,
+            body: null,
+            published_at: '2026-01-16T00:00:00Z',
+            author: null,
+          },
+        ]),
+      );
+
+    const result = await githubReleasesSource.fetch({
+      owner: 'owner',
+      repo: 'repo',
+      fetchImpl: fakeFetch,
+    });
+
+    expect(result.items[0]).toMatchObject({ title: 'v1.0.1' });
+    expect(result.items[0]).not.toHaveProperty('summary');
+    expect(result.items[0]).not.toHaveProperty('authors');
   });
 });

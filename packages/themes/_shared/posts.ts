@@ -1,12 +1,12 @@
 // テーマ共通の posts レンダリングヘルパー。各テーマは render(ctx) / renderPostPage(ctx)
 // などからこれらを呼び、テーマ固有のラッパー HTML / class 名で囲う。
 
-import { generateRss } from '@perch/core';
+import { generateRss } from '@perch-app/core';
 
 import { escapeAttr, escapeHtml, formatPostDate } from './render.js';
 
 import type { PostPageContext, SupportedLocale, ThemeContext } from './types.js';
-import type { Post } from '@perch/core';
+import type { Post } from '@perch-app/core';
 
 const I18N_POSTS_HEADING: Record<SupportedLocale, string> = {
   ja: '記事',
@@ -65,7 +65,7 @@ ${summary}
   return `<ul class="${escapeAttr(listClass)}">${items}</ul>`;
 }
 
-/** 単一記事の <article> 本文。post.bodyHtml は @perch/core 側で sanitize 済み。 */
+/** 単一記事の <article> 本文。post.bodyHtml は @perch-app/core 側で sanitize 済み。 */
 export function renderPostBody(ctx: PostPageContext): string {
   const post = ctx.post;
   const cover = post.coverImage

@@ -1,7 +1,7 @@
-import { defineSource } from '@perch/core';
+import { defineSource } from '@perch-app/core';
 import { z } from 'zod';
 
-import type { NormalizedFeed } from '@perch/core';
+import type { NormalizedFeed } from '@perch-app/core';
 
 const githubReleaseConfigSchema = z.object({
   owner: z.string().min(1),
