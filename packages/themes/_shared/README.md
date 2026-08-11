@@ -1,7 +1,7 @@
-# @perch/themes-shared
+# @perch-app/themes-shared
 
 Shared TypeScript types and HTML rendering helpers used by the bundled
-`@perch/theme-*` packages.
+`@perch-app/theme-*` packages.
 
 This package is intentionally small and framework-independent. It is published
 because first-party themes depend on its public theme contract.

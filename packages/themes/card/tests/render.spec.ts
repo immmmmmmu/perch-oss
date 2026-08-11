@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import card, { meta } from '../src/index.js';
 
-import type { NormalizedFeed } from '@perch/core';
+import type { NormalizedFeed } from '@perch-app/core';
 
 const feed: NormalizedFeed = {
   source: { url: 'https://example.com/feed' },
@@ -10,7 +10,7 @@ const feed: NormalizedFeed = {
   items: [],
 };
 
-describe('@perch/theme-card', () => {
+describe('@perch-app/theme-card', () => {
   it('declares the documented metadata', () => {
     expect(meta).toMatchObject({ id: 'card', displayName: { ja: 'カード', en: 'Card' } });
   });

@@ -1,4 +1,4 @@
-# @perch/core
+# @perch-app/core
 
 Framework-agnostic TypeScript core for `perch`. Provides feed fetching, normalization, and OG image extraction.
 

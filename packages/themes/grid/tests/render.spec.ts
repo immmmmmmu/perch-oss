@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import grid, { meta } from '../src/index.js';
 
-import type { NormalizedFeed } from '@perch/core';
+import type { NormalizedFeed } from '@perch-app/core';
 
 const feed: NormalizedFeed = {
   source: { url: 'https://example.com/feed' },
@@ -18,7 +18,7 @@ const feed: NormalizedFeed = {
   ],
 };
 
-describe('@perch/theme-grid', () => {
+describe('@perch-app/theme-grid', () => {
   it('declares the documented metadata', () => {
     expect(meta).toMatchObject({ id: 'grid', displayName: { ja: 'グリッド', en: 'Grid' } });
   });

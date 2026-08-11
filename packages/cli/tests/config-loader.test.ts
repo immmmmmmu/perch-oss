@@ -137,6 +137,36 @@ feeds: []
     expect(config.profile.bioHtml).not.toContain('javascript:');
   });
 
+  it('renders safe links and images while dropping unsafe images', async () => {
+    const configPath = join(tmpDir, 'perch.config.yaml');
+    writeFileSync(
+      join(tmpDir, 'profile.md'),
+      `
+[website](https://example.com)
+
+![avatar](./avatar.png)
+
+![unsafe](javascript:alert(1))
+`,
+    );
+    writeFileSync(
+      configPath,
+      `
+profile:
+  name: "Links User"
+  markdown: "./profile.md"
+locale: ja
+feeds: []
+`,
+    );
+
+    const config = await loadConfig(configPath);
+
+    expect(config.profile.bioHtml).toContain('<a href="https://example.com">website</a>');
+    expect(config.profile.bioHtml).toContain('<img src="./avatar.png" alt="avatar">');
+    expect(config.profile.bioHtml).not.toContain('javascript:');
+  });
+
   it('does not accept raw bioHtml from config files', async () => {
     const configPath = join(tmpDir, 'perch.config.yaml');
     writeFileSync(

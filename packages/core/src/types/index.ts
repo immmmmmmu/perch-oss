@@ -1,4 +1,4 @@
-// @perch/core public type surface.
+// @perch-app/core public type surface.
 // All shapes are readonly to encourage immutable callers; mutation is contained
 // to opaque internal helpers in `_internal/`.
 //
@@ -129,7 +129,7 @@ export interface Source<TConfig> {
 
 /**
  * Spec passed to `defineSource` to register a custom source (e.g. YouTube,
- * Substack). The runtime (`@perch/core`) does NOT bundle a Zod runtime; the
+ * Substack). The runtime (`@perch-app/core`) does NOT bundle a Zod runtime; the
  * caller passes a parser which we duck-type via the `Validator<T>` interface.
  */
 export interface SourceSpec<TConfig> {

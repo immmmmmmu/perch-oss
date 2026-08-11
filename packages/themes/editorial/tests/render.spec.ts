@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import editorial, { meta } from '../src/index.js';
 
-import type { NormalizedFeed } from '@perch/core';
+import type { NormalizedFeed } from '@perch-app/core';
 
 const feed: NormalizedFeed = {
   source: { url: 'https://example.com/feed', name: 'Example Journal' },
@@ -27,7 +27,7 @@ const feed: NormalizedFeed = {
   ],
 };
 
-describe('@perch/theme-editorial', () => {
+describe('@perch-app/theme-editorial', () => {
   it('declares the documented metadata', () => {
     expect(meta).toMatchObject({
       id: 'editorial',

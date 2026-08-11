@@ -18,18 +18,18 @@ build, so this file's value only affects single-theme local builds.
 From the repository root:
 
 ```bash
-pnpm --filter @perch/core build
-pnpm --filter "@perch/theme-*" build
-pnpm --filter @perch/cli build
+pnpm --filter @perch-app/core build
+pnpm --filter "@perch-app/theme-*" build
+pnpm --filter @perch-app/cli build
 node packages/cli/dist/cli.mjs build --config examples/profile/perch.config.yaml --out examples/profile/dist
 ```
 
 ## Build the Full Theme Gallery Locally
 
 ```bash
-pnpm --filter @perch/core build
-pnpm --filter "@perch/theme-*" build
-pnpm --filter @perch/cli build
+pnpm --filter @perch-app/core build
+pnpm --filter "@perch-app/theme-*" build
+pnpm --filter @perch-app/cli build
 node scripts/build-theme-gallery.mjs
 ```
 

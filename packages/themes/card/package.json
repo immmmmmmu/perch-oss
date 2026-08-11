@@ -1,5 +1,5 @@
 {
-  "name": "@perch/theme-card",
+  "name": "@perch-app/theme-card",
   "version": "0.1.0",
   "description": "perch theme — card.",
   "keywords": [
@@ -39,14 +39,14 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "build": "pnpm dlx @tailwindcss/cli@4.2.4 -i src/style.css -o dist/style.css --minify",
+    "build": "pnpm exec tailwindcss -i src/style.css -o dist/style.css --minify",
     "test": "vitest run --passWithNoTests"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@perch/core": "workspace:*",
-    "@perch/themes-shared": "workspace:*"
+    "@perch-app/core": "workspace:*",
+    "@perch-app/themes-shared": "workspace:*"
   }
 }

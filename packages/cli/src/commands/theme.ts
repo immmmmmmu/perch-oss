@@ -1,4 +1,4 @@
-import type { ThemeMeta } from '@perch/themes-shared';
+import type { ThemeMeta } from '@perch-app/themes-shared';
 
 export interface CliThemeMeta extends ThemeMeta {
   readonly description: { readonly ja: string; readonly en: string };

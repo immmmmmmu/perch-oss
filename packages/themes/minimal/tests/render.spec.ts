@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 
 import minimal, { meta } from '../src/index.js';
 
-import type { NormalizedFeed } from '@perch/core';
-import type { ThemeContext } from '@perch/themes-shared';
+import type { NormalizedFeed } from '@perch-app/core';
+import type { ThemeContext } from '@perch-app/themes-shared';
 
 const feed: NormalizedFeed = {
   source: { url: 'https://example.com/feed' },
@@ -29,7 +29,7 @@ const ctxBase: Omit<ThemeContext, 'locale'> = {
   feed,
 };
 
-describe('@perch/theme-minimal', () => {
+describe('@perch-app/theme-minimal', () => {
   it('declares the documented metadata', () => {
     expect(meta.id).toBe('minimal');
     expect(meta.displayName.ja).toBe('ミニマル');
@@ -52,6 +52,6 @@ describe('@perch/theme-minimal', () => {
 
   it('embeds the theme generator meta tag', () => {
     const html = minimal.render({ ...ctxBase, locale: 'ja' });
-    expect(html).toContain('@perch/themes:minimal');
+    expect(html).toContain('@perch-app/theme-minimal');
   });
 });

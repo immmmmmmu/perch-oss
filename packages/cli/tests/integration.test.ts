@@ -2,14 +2,14 @@ import { mkdtempSync, rmSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { defineSource } from '@perch/core';
+import { defineSource } from '@perch-app/core';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { z } from 'zod';
 
 import { runBuild } from '../src/commands/build.js';
 
 import type { PerchConfig } from '../src/config-loader.js';
-import type { NormalizedFeed } from '@perch/core';
+import type { NormalizedFeed } from '@perch-app/core';
 
 let tmpDir: string;
 

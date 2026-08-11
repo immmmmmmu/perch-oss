@@ -3,7 +3,7 @@
 // single golden HTML structure.
 
 import type { SupportedLocale, ThemeContext, ThemeSite } from './types.js';
-import type { NormalizedFeed, NormalizedItem } from '@perch/core';
+import type { NormalizedFeed, NormalizedItem } from '@perch-app/core';
 
 const I18N_FEED_HEADING: Record<SupportedLocale, string> = {
   ja: '最新の発信',
@@ -115,7 +115,7 @@ export function htmlShell(opts: {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${escapeHtml(opts.title)}</title>
-<meta name="generator" content="@perch/themes:${escapeAttr(opts.themeId)}" />
+<meta name="generator" content="@perch-app/theme-${escapeAttr(opts.themeId)}" />
 <link rel="stylesheet" href="./style.css" />
 ${head}
 </head><body class="${escapeAttr(opts.bodyClass)}">

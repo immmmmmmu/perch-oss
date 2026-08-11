@@ -1,4 +1,4 @@
-import { mergeTimeline } from '@perch/core';
+import { mergeTimeline } from '@perch-app/core';
 import {
   escapeAttr,
   escapeHtml,
@@ -14,9 +14,9 @@ import {
   type Theme,
   type ThemeContext,
   type PostPageContext,
-} from '@perch/themes-shared';
+} from '@perch-app/themes-shared';
 
-import type { NormalizedItem } from '@perch/core';
+import type { NormalizedItem } from '@perch-app/core';
 
 export const meta: Theme['meta'] = {
   id: 'editorial',

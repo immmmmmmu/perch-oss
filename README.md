@@ -4,10 +4,10 @@
 
 `perch`（止まり木）は note・Zenn・YouTube・自社ブログ等の複数チャネルに発信する人が、**書き続けるだけで自動的に最新コンテンツが反映されるプロフィールページ**を作れる OSS ツールキットです。
 
-- `@perch/core` — feed fetching, normalization, Markdown rendering, and OGP helpers
-- `@perch/cli` — self-hosted static profile generator
-- `@perch/theme-*` — bundled themes for different use cases
-- `@perch/i18n` — shared ja/en message assets
+- `@perch-app/core` — feed fetching, normalization, Markdown rendering, and OGP helpers
+- `@perch-app/cli` — self-hosted static profile generator
+- `@perch-app/theme-*` — bundled themes for different use cases
+- `@perch-app/i18n` — shared ja/en message assets
 
 ## ステータス
 

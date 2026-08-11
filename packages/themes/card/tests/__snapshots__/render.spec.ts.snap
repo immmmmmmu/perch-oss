@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`@perch/theme-card > renders ja + en snapshots > en 1`] = `
+exports[`@perch-app/theme-card > renders ja + en snapshots > en 1`] = `
 "<!doctype html><html lang="en"><head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>card sample</title>
-<meta name="generator" content="@perch/themes:card" />
+<meta name="generator" content="@perch-app/theme-card" />
 <link rel="stylesheet" href="./style.css" />
 <meta property="og:title" content="card sample" />
 <meta property="og:type" content="website" />
@@ -23,12 +23,12 @@ exports[`@perch/theme-card > renders ja + en snapshots > en 1`] = `
 </body></html>"
 `;
 
-exports[`@perch/theme-card > renders ja + en snapshots > ja 1`] = `
+exports[`@perch-app/theme-card > renders ja + en snapshots > ja 1`] = `
 "<!doctype html><html lang="ja"><head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>card sample</title>
-<meta name="generator" content="@perch/themes:card" />
+<meta name="generator" content="@perch-app/theme-card" />
 <link rel="stylesheet" href="./style.css" />
 <meta property="og:title" content="card sample" />
 <meta property="og:type" content="website" />
