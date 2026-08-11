@@ -18,6 +18,7 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest --passWithNoTests",
     "test:coverage": "vitest run --coverage --passWithNoTests",
+    "e2e": "pnpm --filter @perch-app/e2e test",
     "build": "pnpm -r --workspace-concurrency=1 build",
     "i18n:compile": "pnpm --filter @perch-app/i18n compile",
     "i18n:check": "pnpm --filter @perch-app/i18n check",
@@ -31,10 +32,18 @@
   "pnpm": {
     "overrides": {
       "devalue": "5.8.1",
+      "esbuild": "0.28.2",
       "fast-xml-builder": ">=1.1.7",
+      "fast-uri": "3.1.5",
+      "hono": "4.13.1",
       "js-cookie": "3.0.7",
       "kysely": ">=0.28.17",
-      "undici": "7.28.0"
+      "nanoid": "3.3.17",
+      "postcss": "8.5.23",
+      "sharp": "0.35.3",
+      "svgo": "4.0.2",
+      "undici": "7.29.0",
+      "yaml": "2.8.3"
     }
   },
   "devDependencies": {

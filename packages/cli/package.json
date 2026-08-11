@@ -63,7 +63,7 @@
     "@perch-app/theme-minimal": "workspace:*",
     "@perch-app/theme-timeline": "workspace:*",
     "@perch-app/themes-shared": "workspace:*",
-    "js-yaml": "^5.0.0",
+    "js-yaml": "^5.2.3",
     "marked": "^18.0.3",
     "zod": "^4.4.2"
   },
